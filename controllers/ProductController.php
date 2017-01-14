@@ -27,7 +27,7 @@ class ProductController
             $count = $_POST['count'];
 
             Cart::addProductByCount($id, $count);
-            echo '(' . Cart::getCountItems() . ')';
+            echo Cart::getCountItems();
         }
 
         return true;

@@ -12,10 +12,16 @@ class SiteController
         $categories = array();
         $categories = Category::getCategoriesList();
 
-        $recommendedProducts = array();
-        $recommendedProducts = Product::getRecommendedProducts();
+        $sliderProducts = array();
+        $sliderProducts = Product::getRecommendedProducts();
 
         require_once ROOT . '/views/site/index.php';
+
+        return true;
+    }
+
+    public function actionAbout() {
+        require_once ROOT . '/views/site/about.php';
 
         return true;
     }

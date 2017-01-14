@@ -15,7 +15,7 @@ class CartController
     public function actionAddAjax($id)
     {
         Cart::addProduct($id);
-        echo '(' . Cart::getCountItems() . ')';
+        echo Cart::getCountItems();
 
         return true;
     }
@@ -132,19 +132,8 @@ class CartController
 
     public function actionDelete($id)
     {
-        $products = Cart::getProducts();
+        Cart::deleteProduct($id);
 
-        if ($products) {
-
-            foreach ($products as $key => $value) {
-                if ($key == $id) {
-                    unset($products[$key]);
-                    break;
-                }
-            }
-
-            Cart::setProducts($products);
-        }
         header("Location : /cart/");
     }
 }
